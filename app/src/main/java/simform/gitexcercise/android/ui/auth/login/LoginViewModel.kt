@@ -9,7 +9,7 @@ class LoginViewModel : ViewModel() {
     val loginDetail = MutableStateFlow(LoginDetail())
 
     fun validateDetails(): Boolean =
-        loginDetail.value.email == EMAIL && loginDetail.value.password == PASSWORD
+        loginDetail.value.email.equals(EMAIL, true) && loginDetail.value.password == PASSWORD
 
     companion object {
         private const val EMAIL = "test@simformsolutions.com"
