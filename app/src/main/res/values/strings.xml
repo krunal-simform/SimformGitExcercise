@@ -16,4 +16,5 @@
     <string name="text_name">"Name: "</string>
     <string name="text_password">"Password: "</string>
     <string name="edit_profile">Edit profile</string>
+    <string name="text_save_changes">Save changes</string>
 </resources>

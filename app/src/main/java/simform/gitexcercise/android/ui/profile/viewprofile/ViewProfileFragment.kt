@@ -10,10 +10,12 @@ import android.view.ViewGroup
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.commit
 import androidx.lifecycle.Lifecycle
 import simform.gitexcercise.android.R
 import simform.gitexcercise.android.databinding.FragmentViewProfileBinding
 import simform.gitexcercise.android.ui.profile.ProfileViewModel
+import simform.gitexcercise.android.ui.profile.editprofile.EditProfileFragment
 
 class ViewProfileFragment : Fragment(), MenuProvider {
 
@@ -43,7 +45,10 @@ class ViewProfileFragment : Fragment(), MenuProvider {
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        // TODO: Navigate to Edit Profile screen 
+        parentFragmentManager.commit {
+            replace(R.id.container_view_profile, EditProfileFragment())
+            addToBackStack(null)
+        }
         return true
     }
 }
