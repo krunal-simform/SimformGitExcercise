@@ -1,5 +1,6 @@
 package simform.gitexcercise.android.ui.auth.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import simform.gitexcercise.android.R
 import simform.gitexcercise.android.databinding.FragmentLoginBinding
 import simform.gitexcercise.android.ui.auth.forgotpassword.ForgotPasswordFragment
 import simform.gitexcercise.android.ui.auth.register.RegisterFragment
+import simform.gitexcercise.android.ui.profile.ProfileActivity
 
 class LoginFragment : Fragment() {
 
@@ -39,7 +41,13 @@ class LoginFragment : Fragment() {
     private fun setupListener() {
         binding.btnLogin.setOnClickListener {
             if (viewModel.validateDetails()) {
-                // TODO: Navigate to Profile screen
+                requireActivity().startActivity(
+                    Intent(
+                        requireContext(),
+                        ProfileActivity::class.java
+                    )
+                )
+                requireActivity().finish()
             } else {
                 Toast.makeText(
                     requireContext(),
