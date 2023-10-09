@@ -5,4 +5,5 @@
     <dimen name="space_small">8dp</dimen>
     <dimen name="space_normal">16dp</dimen>
     <dimen name="space_medium">20dp</dimen>
+    <dimen name="text_size_normal">18sp</dimen>
 </resources>
