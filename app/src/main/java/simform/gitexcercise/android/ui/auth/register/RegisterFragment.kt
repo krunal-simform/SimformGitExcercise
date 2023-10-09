@@ -1,5 +1,6 @@
 package simform.gitexcercise.android.ui.auth.register
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.fragment.app.viewModels
 import simform.gitexcercise.android.R
 import simform.gitexcercise.android.databinding.FragmentRegisterBinding
 import simform.gitexcercise.android.ui.auth.login.LoginFragment
+import simform.gitexcercise.android.ui.profile.ProfileActivity
 
 class RegisterFragment : Fragment() {
 
@@ -38,9 +40,19 @@ class RegisterFragment : Fragment() {
     private fun setupListener() {
         binding.btnRegister.setOnClickListener {
             if (viewModel.validateDetails()) {
-                // TODO: Navigate to Profile Screen
+                requireActivity().startActivity(
+                    Intent(
+                        requireContext(),
+                        ProfileActivity::class.java
+                    )
+                )
+                requireActivity().finish()
             } else {
-                Toast.makeText(requireContext(), getString(R.string.error_required_fileds), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.error_required_fields),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 

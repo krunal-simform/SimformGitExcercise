@@ -8,7 +8,7 @@ class LoginViewModel : ViewModel() {
 
     val loginDetail = MutableStateFlow(LoginDetail())
 
-    fun validateDetails(): Boolean =
+    fun validateLoginDetails(): Boolean =
         loginDetail.value.email.equals(EMAIL, true) && loginDetail.value.password == PASSWORD
 
     companion object {

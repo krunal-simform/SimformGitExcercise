@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="simform.gitexcercise.android.ui.profile.ProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/margin_start" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/margin_end" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_label_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_normal"
+            android:text="@string/text_name"
+            android:textAppearance="@style/TextLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_name"
+            style="@style/TextBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ viewModel.profileDetail.name }"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_label_name"
+            app:layout_constraintStart_toEndOf="@id/text_label_name"
+            tools:text="Krunal Patel" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_label_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_normal"
+            android:text="@string/text_email"
+            android:textAppearance="@style/TextLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_label_name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_email"
+            style="@style/TextBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ viewModel.profileDetail.email }"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_label_email"
+            app:layout_constraintStart_toEndOf="@id/text_label_email"
+            tools:text="test@simformsolutions.com" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_label_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_normal"
+            android:text="@string/text_password"
+            android:textAppearance="@style/TextLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_label_email" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_password"
+            style="@style/TextBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ viewModel.profileDetail.password }"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_label_password"
+            app:layout_constraintStart_toEndOf="@id/text_label_password"
+            tools:text="Test@123" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
